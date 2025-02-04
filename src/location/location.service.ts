@@ -29,8 +29,9 @@ export class LocationService {
     if (!location) {
       throw new NotFoundException(`Location with ID ${id} not found`);
     }
-    return await this.locationRepository.update(id, updateLocationDto);
+    return this.locationRepository.update(id, updateLocationDto);
   }
+
   async remove(id: number): Promise<void> {
     const location = await this.findOne(id);
     await this.locationRepository.remove(location);
