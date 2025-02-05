@@ -11,10 +11,17 @@ import { LocationService } from './location.service';
 import { Location } from './entities/location.entity';
 import { CreateLocationDto } from './dto/create-location.dto/create-location.dto';
 import { UpdateLocationDto } from './dto/update-location.dto/update-location.dto';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
+@ApiTags('location')
 @Controller('location')
 export class LocationController {
   constructor(private locationService: LocationService) {}
   @Get()
+  @ApiResponse({
+    status: 200,
+    description: 'Returns an array of locations',
+    type: Location,
+  })
   async findAll(): Promise<Location[]> {
     return await this.locationService.findAll();
   }
