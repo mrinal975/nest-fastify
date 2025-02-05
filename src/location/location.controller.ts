@@ -22,7 +22,7 @@ export class LocationController {
     description: 'Returns an array of locations',
     type: Location,
   })
-  async findAll(): Promise<Location[]> {
+  async findAll(): Promise<any> {
     return await this.locationService.findAll();
   }
   @Post()

@@ -12,7 +12,7 @@ export class LocationService {
     return await this.locationRepository.save(location);
   }
 
-  async findAll(): Promise<Location[]> {
+  async findAll(): Promise<any> {
     return await this.locationRepository.find();
   }
 
